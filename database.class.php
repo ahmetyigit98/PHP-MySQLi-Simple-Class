@@ -1,7 +1,7 @@
 <?php
 
 /*
-   MySQLi DB PHP class
+   PHP-MySQLi-Simple-Class
    16.03.2018
 */
 
@@ -11,11 +11,10 @@ class Database {
 	public $user     = "";
 	public $pass     = "";
 	public $database = "";
-	public $pre      = "";
-	public $debug_sql = "0";
-	public $pconnect = "0";
+	public $debug_sql = 0;
+	public $pconnect = 0;
 	public $error_page = "/500.html";
-	public $logging = "1";
+	public $logging = 1;
 	public $log_dir = '';
 	public $charset = "UTF-8";
 	public $affected_rows = 0;
@@ -27,15 +26,23 @@ class Database {
 	private $query_id = 0;
 	private $result = '';
 	
-	// Constructor - Begin
+	/**
+	 * Construct connection to the database
+	 * @param  String  $server     Mysql server hostname
+	 * @param  String  $user       Mysql username
+	 * @param  String  $pass       Mysql password
+	 * @param  String  $database   Database to use
+	 * @return 
+	 */
 
-	public function Database($server='localhost', $user='', $pass='', $database='', $pre='') {
+	public function Database($server='localhost', $user='', $pass='', $database='') {
+		
+		$server = $this->pconnect === 1 ? 'p:'.$server : $server;
 		
 		$this->server = $server;
 		$this->user = $user;
 		$this->pass = $pass;
 		$this->database = $database;
-		$this->pre = $pre;
 	
 	}
 
@@ -62,6 +69,8 @@ class Database {
 		$this->user='';
 		$this->pass='';
 		$this->database='';
+		
+		return $this->link;
 	
 	}
 	
