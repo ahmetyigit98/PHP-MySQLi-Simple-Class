@@ -100,13 +100,13 @@ class Database {
 	
 	public function clean($string) {
 		
-		$string = trim( $string );
-        $string = preg_replace("/[^\x20-\xFF]/","",@strval($string));
-        $string = strip_tags($string);
-        $string = htmlspecialchars( $string, ENT_QUOTES );
-        $string = mysqli_real_escape_string($this->link, $string);
-       
-		return $string;
+	$string = trim( $string );
+	$string = preg_replace("/[^\x20-\xFF]/","",@strval($string));
+	$string = strip_tags($string);
+	$string = htmlspecialchars( $string, ENT_QUOTES );
+	$string = mysqli_real_escape_string($this->link, $string);
+
+	return $string;
 	
 	}
 
