@@ -2,7 +2,7 @@
 
 /*
    MySQLi DB PHP class
-   25.02.2018
+   16.03.2018
 */
 
 class Database {
@@ -16,20 +16,15 @@ class Database {
 	public $pconnect = "0";
 	public $error_page = "/500.html";
 	public $logging = "1";
+	public $log_dir = '';
 	public $charset = "UTF-8";
-	
+	public $affected_rows = 0;
 	public $my_queries = array();
 
 	private $error = "";
 	private $errno = 0;
-
-	public $affected_rows = 0;
-
 	private $link = '';
 	private $query_id = 0;
-	
-	public $log_dir = '';
-	
 	private $result = '';
 	
 	// Constructor - Begin
