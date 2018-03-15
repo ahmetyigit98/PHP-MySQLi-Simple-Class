@@ -1,1 +1,1 @@
-# PHP MySQLi Simple Class
+The PHP-MySQLi-Simple-Class is a wrapper for MySQL Database.
