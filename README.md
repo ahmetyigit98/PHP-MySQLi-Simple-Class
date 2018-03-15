@@ -1,0 +1,1 @@
+# PHP MySQLi Simple Class
