@@ -57,23 +57,23 @@ class Database {
 	public function connect() {
 		
 		mb_internal_encoding($this->charset);
-        mb_regex_encoding($this->charset);
+		mb_regex_encoding($this->charset);
 
 		mysqli_report(MYSQLI_REPORT_STRICT);
-		
+
 		try {
-            $this->link = mysqli_connect($this->server, $this->user, $this->pass, $this->database);
-	    } catch ( Exception $e ) {
-            $this->oops("Could not connect to server: <b>$this->server</b>.");
-        }
-		
+			$this->link = mysqli_connect($this->server, $this->user, $this->pass, $this->database);
+		} catch ( Exception $e ) {
+			$this->oops("Could not connect to server: <b>$this->server</b>.");
+		}
+
 		mysqli_set_charset($this->link, $this->charset);
-		
+
 		$this->server='';
 		$this->user='';
 		$this->pass='';
 		$this->database='';
-		
+
 		return $this->link;
 	
 	}
