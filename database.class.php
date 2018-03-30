@@ -2,7 +2,7 @@
 
 /*
    PHP-MySQLi-Simple-Class
-   17.03.2018
+   30.03.2018
 */
 
 class Database {
@@ -27,6 +27,7 @@ class Database {
 	private $query_id = 0;
 	private $result = '';
 	private $queries = array();
+	private $sql_num = 0;
 	
 	/**
 	* Set up connection to the database
@@ -376,10 +377,7 @@ class Database {
 		if($this->link) {
 			$this->error=mysqli_error($this->link);
 			$this->errno=mysqli_errno($this->link);
-		} else {
-			$this->error=mysqli_error();
-			$this->errno=mysqli_errno();
-		}
+		} 
 		
 		$this->errurl = 'http://'.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
 		
