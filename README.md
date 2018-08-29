@@ -1,14 +1,20 @@
 The PHP-MySQLi-Simple-Class is a wrapper for MySQL Database.
 
 ### Usage
+
+It's pretty simply.
+
 ```php
 require_once('database.class.php');
 
 $db = new MyDatabase('localhost', 'user', 'password', 'dbname');
+
 $db->connect();
 ```
 
 ### Select an one record
+
+If we want to get only first found record use the following:
 
 ```php
 
@@ -43,6 +49,8 @@ if ($db->affected_rows > 0) {
 ```
 
 ### Insert a new record
+
+Use array for your data with names of fields and values.
 
 ```php
 
@@ -83,6 +91,8 @@ $db->query($q);
 ```
 
 ### Do a custom query
+
+Don't forget to use method $db->escape for fields with text.
 
 ```php
 
