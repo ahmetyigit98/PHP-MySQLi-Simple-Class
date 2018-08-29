@@ -1,4 +1,4 @@
-The PHP-MySQLi-Simple-Class is a wrapper for MySQL Database.
+The PHP-MySQLi-Simple-Class is a wrapper for MySQL functions.
 
 ### Usage
 
@@ -92,7 +92,7 @@ $db->query($q);
 
 ### Do a custom query
 
-Don't forget to use method $db->escape for fields with text.
+Don't forget to use method $db->escape() for fields with text.
 
 ```php
 
@@ -102,3 +102,19 @@ $db->query($q);
 echo '<p>Rows has found: '.$db->affected_rows.'</p>';
 
 ```
+
+### Clean a string
+
+If you need to clean input string from user e.g. from $_POST array use the method $db->clean()
+
+```php
+
+$user_city = $db->clean($_POST['city']);
+
+```
+And after that you can store this data into your db.
+
+### Debug
+
+$db->debug_sql = 1;
+$db->error_page = SITEURL . '500.html';
