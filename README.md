@@ -8,7 +8,7 @@ $db = new MyDatabase('localhost', 'user', 'password', 'dbname');
 $db->connect();
 ```
 
-### Select first row
+### Select an one record
 
 ```php
 
@@ -17,7 +17,7 @@ $record = $db->query_first($q);
 
 if ($db->affected_rows > 0) {
     $user_id = $record['user_id'];
-    $user_name = $record['user_name'];
+    $user_name = $db->slashes($record['user_name']);
 }
 
 echo '<p>' . $user_id . ':' . $user_name . '</p>';
@@ -34,7 +34,7 @@ $rows = $db->query($q);
 if ($db->affected_rows > 0) {
     while ($record = $db->fetch_array($rows)) {
         $user_id = $record['user_id'];
-        $user_name = $record['user_name'];
+        $user_name = $db->slashes($record['user_name']);
 
         echo '<p>' . $user_id . ':' . $user_name . '</p>';
     }
@@ -42,7 +42,7 @@ if ($db->affected_rows > 0) {
 
 ```
 
-### Insert data
+### Insert a new record
 
 ```php
 
@@ -51,8 +51,44 @@ $data = array();
 $data['user_added'] = 'NOW()';
 $data['user_name'] = 'John'
 
-$db->query_insert('users', $data);
+$user_id = $db->query_insert('users', $data);
 
 unset($data);
+
+echo 'There is id of inserted record: '.$user_id; 
+
+```
+
+### Update an existing record
+
+```php
+
+$data = array();
+
+$data['user_name'] = 'Jack'
+
+$db->update('users', $data, 'user_id="1"');
+
+unset($data);
+
+```
+
+### Update a record
+
+```php
+
+$q = 'DELETE FROM `users` WHERE `users`.`user_id`= "1";
+$db->query($q);
+
+```
+
+### Do a custom query
+
+```php
+
+$q = 'SELECT * FROM `users` WHERE `users`.`user_name` LIKE %'.$db->escape($search).'% ORDER BY `users`.`user_id` DESC LIMIT 5
+$db->query($q);
+
+echo '<p>Rows has found: '.$db->affected_rows.'</p>';
 
 ```
