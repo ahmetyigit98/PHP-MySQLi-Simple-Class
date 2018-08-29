@@ -2,7 +2,7 @@ The PHP-MySQLi-Simple-Class is a wrapper for MySQL functions.
 
 ### Usage
 
-It's pretty simply.
+It's pretty simply. Just include and initialize it as usual.
 
 ```php
 require_once('database.class.php');
