@@ -57,7 +57,7 @@ Use array for your data with names of fields and values.
 $data = array();
 
 $data['user_added'] = 'NOW()';
-$data['user_name'] = 'John'
+$data['user_name'] = 'John';
 
 $user_id = $db->query_insert('users', $data);
 
@@ -73,7 +73,7 @@ echo 'There is id of inserted record: '.$user_id;
 
 $data = array();
 
-$data['user_name'] = 'Jack'
+$data['user_name'] = 'Jack';
 
 $db->update('users', $data, 'user_id="1"');
 
@@ -81,7 +81,7 @@ unset($data);
 
 ```
 
-### Update a record
+### Delete a record
 
 ```php
 
@@ -114,7 +114,29 @@ $user_city = $db->clean($_POST['city']);
 ```
 And after that you can store this data into your db.
 
-### Debug
+```php
+
+$data = array();
+
+$data['$user_city'] = $user_city;
+
+$db->update('users', $data, 'user_id="1"');
+
+unset($data);
+
+```
+
+### Debug and logging
+
+You can use different debug methods for analysis your queries.
+
+```php
+
+$db = new MyDatabase('localhost', 'user', 'password', 'dbname');
 
 $db->debug_sql = 1;
 $db->error_page = SITEURL . '500.html';
+
+$db->connect();
+
+```
