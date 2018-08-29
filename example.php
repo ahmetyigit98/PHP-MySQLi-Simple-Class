@@ -11,5 +11,4 @@ $db = new MyDatabase(DBHOST, DBUSER, DBPASSWD, DBNAME);
 
 $db->connect();
 
-
 ?>

@@ -40,5 +40,19 @@ if ($db->affected_rows > 0) {
     }
 }
 
+```
+
+### Insert data
+
+```php
+
+$data = array();
+
+$data['user_added'] = 'NOW()';
+$data['user_name'] = 'John'
+
+$db->query_insert('users', $data);
+
+unset($data);
 
 ```
