@@ -1,7 +1,5 @@
 <?php
 
-/* The simplest MySQLi PHP class */
-
 require_once('database.class.php');
 
 define('DBHOST', 'localhost');
@@ -12,5 +10,6 @@ define('DBPASSWD', '');
 $db = new MyDatabase(DBHOST, DBUSER, DBPASSWD, DBNAME);
 
 $db->connect();
+
 
 ?>
