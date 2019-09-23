@@ -1,0 +1,19 @@
+{
+    "name": "justvladz/php-mysqli-simple-class",
+    "description": "There is a simple PHP class for working with MySQLi interface. I hope it will be easy and useful. Have fun!",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Vladislav Z",
+            "email": "justvladz@yahoo.com",
+            "homepage": "https://github.com/justvladz/",
+            "role": "Developer"
+        }
+    ],
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "autoload": {
+    "files": ["database.class.php"]
+  }
+}
