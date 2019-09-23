@@ -5,7 +5,7 @@ The PHP-MySQLi-Simple-Class is a wrapper for MySQL functions.
 It's pretty simply. Just include and initialize it as usual.
 
 ```php
-require_once('database.class.php');
+require_once 'database.class.php';
 
 $db = new MyDatabase('localhost', 'user', 'password', 'dbname');
 
@@ -54,7 +54,7 @@ Use array for your data with names of fields and values.
 
 ```php
 
-$data = array();
+$data = [];
 
 $data['user_added'] = 'NOW()';
 $data['user_name'] = 'John';
@@ -71,7 +71,7 @@ echo 'There is id of inserted record: '.$user_id;
 
 ```php
 
-$data = array();
+$data = [];
 
 $data['user_name'] = 'Jack';
 
@@ -116,9 +116,9 @@ And after that you can store this data into your db.
 
 ```php
 
-$data = array();
+$data = [];
 
-$data['$user_city'] = $user_city;
+$data['user_city'] = $user_city;
 
 $db->update('users', $data, 'user_id="1"');
 
