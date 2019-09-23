@@ -96,7 +96,7 @@ Don't forget to use method $db->escape() for fields with text.
 
 ```php
 
-$q = 'SELECT * FROM `users` WHERE `users`.`user_name` LIKE %'.$db->escape($search).'% ORDER BY `users`.`user_id` DESC LIMIT 5
+$q = 'SELECT * FROM `users` WHERE `users`.`user_name` LIKE "%'.$db->escape($search).'%" ORDER BY `users`.`user_id` DESC LIMIT 5
 $db->query($q);
 
 echo '<p>Rows has found: '.$db->affected_rows.'</p>';
